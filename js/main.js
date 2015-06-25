@@ -5,7 +5,7 @@ var paused = false;
 
 
 playButton.addEventListener("click", function() {
-	if (movies[0].paused == true) {
+	if (paused == true) {
 		noo.pause();
 		noo.currentTime = 0;
 		playButton.innerHTML = '<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>';
@@ -17,12 +17,9 @@ playButton.addEventListener("click", function() {
 			movies[7].className = "movie movie-rotate";
 		}
 		movies[0].play();
+		pause = false;
 	} else {
 		playButton.innerHTML = '<img src="img/yuno.png"> Y u stop ?';
-		// Pause the videos
-		for (var i=0; i < 8; i++) { 
-			movies[i].pause();
-		}
 		noo.play();
 		paused = true;
 	}
@@ -30,26 +27,26 @@ playButton.addEventListener("click", function() {
 
 movies[0].onended = function() {
 	movies[0].setAttribute("hidden", "");
-	movies[1].removeAttribute("hidden");	
-	movies[1].play();
-};
-
-movies[1].onended = function() {
-	movies[1].setAttribute("hidden", "");
 	movies[2].removeAttribute("hidden");	
 	movies[2].play();
 };
 
+movies[1].onended = function() {
+	movies[1].setAttribute("hidden", "");
+	movies[4].removeAttribute("hidden");	
+	movies[4].play();
+};
+
 movies[2].onended = function() {
 	movies[2].setAttribute("hidden", "");
-	movies[3].removeAttribute("hidden");	
-	movies[3].play();
+	movies[6].removeAttribute("hidden");	
+	movies[6].play();
 };
 
 movies[3].onended = function() {
 	movies[3].setAttribute("hidden", "");
-	movies[4].removeAttribute("hidden");	
-	movies[4].play();
+	movies[1].removeAttribute("hidden");	
+	movies[1].play();
 };
 
 movies[4].onended = function() {
@@ -60,14 +57,14 @@ movies[4].onended = function() {
 
 movies[5].onended = function() {
 	movies[5].setAttribute("hidden", "");
-	movies[6].removeAttribute("hidden");	
-	movies[6].play();
+	movies[7].removeAttribute("hidden");	
+	movies[7].play();
 };
 
 movies[6].onended = function() {
 	movies[6].setAttribute("hidden", "");
-	movies[7].removeAttribute("hidden");	
-	movies[7].play();
+	movies[3].removeAttribute("hidden");	
+	movies[3].play();
 };
 
 movies[7].onended = function() {

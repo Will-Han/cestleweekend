@@ -5,7 +5,7 @@ var paused = false;
 
 
 playButton.addEventListener("click", function() {
-	if (paused == true) {
+	if (movies[0].paused == true) {
 		noo.pause();
 		noo.currentTime = 0;
 		playButton.innerHTML = '<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>';
@@ -17,7 +17,7 @@ playButton.addEventListener("click", function() {
 			movies[7].className = "movie movie-rotate";
 		}
 		movies[0].play();
-		pause = false;
+		paused = false;
 	} else {
 		playButton.innerHTML = '<img src="img/yuno.png"> Y u stop ?';
 		noo.play();
